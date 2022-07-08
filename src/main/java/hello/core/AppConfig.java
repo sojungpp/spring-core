@@ -17,16 +17,19 @@ public class AppConfig {
 
     @Bean
     public MemberService memberService() {
+        System.out.println("AppConfig.memberService");
         return new MemberServiceImpl(memberRepository());
     }
 
     @Bean
     public MemberRepository memberRepository() {
+        System.out.println("AppConfig.memberRepository");
         return new MemoryMemberRepository(); //memory로 쓸 것이라는 것 명확하게 보임! 추후 바꾸면 이 부분만 바꾸면 되는 것.
     }
 
     @Bean
     public OrderService orderService()  {
+        System.out.println("AppConfig.orderService");
         return new OrderServiceImpl(memberRepository(), discountPolicy());
     }
 
